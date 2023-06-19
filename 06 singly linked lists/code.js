@@ -1,50 +1,49 @@
-class ListNode {    
-    constructor (val) {
-        this.val = val;
-        this.next = null;
-    } 
+class ListNode {
+	constructor(val) {
+		this.val = val;
+		this.next = null;
+	}
 }
 
 class LinkedList {
-    
-    constructor() {
-        // Init the list with a 'dummy' node which makes 
-        // removing a node from the beginning of list easier.
-        this.head = new ListNode(-1);
-        this.tail = this.head;
-    }
+	constructor() {
+		// Init the list with a 'dummy' node which makes
+		// removing a node from the beginning of list easier.
+		this.head = new ListNode(-1);
+		this.tail = this.head;
+	}
 
-    insertEnd(val) {
-        this.tail.next = new ListNode(val);
-        this.tail = this.tail.next; 
-    }
+	insertEnd(val) {
+		this.tail.next = new ListNode(val);
+		this.tail = this.tail.next;
+	}
 
-    remove(index) {
-        let i = 0;
-        let curr;
-        
-        curr = this.head;
+	remove(index) {
+		let i = 0;
+		let curr;
 
-        while(i < index && curr != null) {
-            i++;
-            curr = curr.next;
-        }
+		curr = this.head;
 
-        // Remove the node ahead of curr
-        if (curr != null) {
-            curr.next = curr.next.next;
-        }
-    }
+		while (i < index && curr != null) {
+			i++;
+			curr = curr.next;
+		}
 
-    print() { 
-        let curr = this.head.next;
-        let s = "";
-    
-        while (curr != null) {
-            s+= curr.val + "->";     
-            curr = curr.next;
-        }
+		// Remove the node ahead of curr
+		if (curr != null) {
+			curr.next = curr.next.next;
+		}
+	}
 
-        console.log(s);
-    }
+	print() {
+		let curr = this.head.next;
+		let s = "";
+
+		while (curr != null) {
+			s += curr.val + "->";
+			curr = curr.next;
+		}
+
+		console.log(s);
+	}
 }
