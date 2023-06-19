@@ -1,7 +1,36 @@
 const { readdir, rename } = require("node:fs");
 
-const dir =
-	"/mnt/FILER/_doing/neetcode-algorithms-and-data-structures-for-beginners/04 recursion/10 fibonacci";
+readdir(__dirname, (_, files) => {
+	const fls = files.filter((item) => ![".git", "rename.js"].includes(item));
+
+	fls.forEach((item) => {
+		readdir(__dirname + "/" + item, (_err, files) => {
+			console.log(files);
+			files
+				.filter(
+					(item) => !item.toLowerCase().includes("CHALLENGE".toLowerCase()),
+				)
+				.forEach((file) => {
+					const newName = file
+						.toLowerCase()
+						.replaceAll(" ", "-")
+						.replace("-code.txt", "");
+					const toRename =
+
+						__dirname + "/" + item + "/" + `code.${langMap[newName]}`;
+
+						const fileName  = __dirname +"/" + item +"/" + file
+
+						console.log("🚀 ~ .forEach ~ fileName:", fileName)
+						console.log("🚀 ~ .forEach ~ toRename:", toRename)
+
+
+
+					rename(__dirname +"/" + item +"/" + file, toRename, (err) => {});
+				});
+		});
+	});
+});
 
 const langMap = {
 	"c++": "cpp",
@@ -9,19 +38,3 @@ const langMap = {
 	javascript: "js",
 	python: "py",
 };
-
-readdir(dir, (_err, files) => {
-	files
-		.filter((item) => !item.toLowerCase().includes("CHALLENGE".toLowerCase()))
-		.forEach((file) => {
-			const newName = file
-				.toLowerCase()
-				.replaceAll(" ", "-")
-				.replace("-code.txt", "");
-			console.log(file);
-			const toRename = dir + "/" + `code.${langMap[newName]}`;
-			console.log(toRename);
-
-			rename(dir + "/" + file, toRename, (err) => {});
-		});
-});
