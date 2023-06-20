@@ -16,17 +16,14 @@ readdir(__dirname, (_, files) => {
 						.replaceAll(" ", "-")
 						.replace("-code.txt", "");
 					const toRename =
-
 						__dirname + "/" + item + "/" + `code.${langMap[newName]}`;
 
-						const fileName  = __dirname +"/" + item +"/" + file
+					const fileName = __dirname + "/" + item + "/" + file;
 
-						console.log("🚀 ~ .forEach ~ fileName:", fileName)
-						console.log("🚀 ~ .forEach ~ toRename:", toRename)
+					console.log("🚀 ~ .forEach ~ fileName:", fileName);
+					console.log("🚀 ~ .forEach ~ toRename:", toRename);
 
-
-
-					rename(__dirname +"/" + item +"/" + file, toRename, (err) => {});
+					rename(__dirname + "/" + item + "/" + file, toRename, (err) => {});
 				});
 		});
 	});

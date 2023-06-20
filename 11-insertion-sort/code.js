@@ -15,7 +15,7 @@ function insertionSort(arr) {
 	return arr;
 }
 
-const arr = [ 11,1, 112, 23, 20, 10, 30, 6,  4,    93, 89,  9 ,3,];
+const arr = [11, 1, 112, 23, 20, 10, 30, 6, 4, 93, 89, 9, 3];
 
 console.log("🚀 ~ insertionSort ~ arr!", arr);
 console.log("🚀 ~ insertionSort(arr):", insertionSort(arr));

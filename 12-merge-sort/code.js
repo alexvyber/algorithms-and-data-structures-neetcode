@@ -1,5 +1,5 @@
 function mergeSort(arr) {
-let l,r	
+	let l, r;
 	if (l < r) {
 		// Find the middle point of arr
 		let m = Math.floor((l + r) / 2);
@@ -17,7 +17,7 @@ let l,r
 // First subarray is arr[l..m]
 // Second subarray is arr[m+1..r]
 function merge(arr, l, m, r) {
-	console.log("🚀 ~ merge ~ arr:", arr)
+	console.log("🚀 ~ merge ~ arr:", arr);
 	// Find lengths of two subarrays to be merged
 	let length1 = m - l + 1;
 	let length2 = r - m;
@@ -68,20 +68,15 @@ function merge(arr, l, m, r) {
 
 const arr = [11, 1, 112, 23, 20, 10, 30, 6, 4, 93, 89, 9, 3];
 
-const leftLength = Math.floor( arr.length / 2)
-const rightLength = arr.length - leftLength
+const leftLength = Math.floor(arr.length / 2);
+const rightLength = arr.length - leftLength;
 
-const left = arr.slice(0, leftLength )
-console.log("🚀 ~ left:", left)
-const right = arr.slice(leftLength)
-console.log("🚀 ~ right:", right)
+const left = arr.slice(0, leftLength);
+console.log("🚀 ~ left:", left);
+const right = arr.slice(leftLength);
+console.log("🚀 ~ right:", right);
 // let m = Math.floor((l + r) / 2);
 
 // const res = mergeSort(arr, left, right);
-const res = merge(
-	arr,
-	mergeSort(left),
-	mergeSort(right),
-	leftLength
-)
+const res = merge(arr, mergeSort(left), mergeSort(right), leftLength);
 // console.log("🚀 ~ res:", res);
